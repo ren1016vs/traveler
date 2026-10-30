@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :posts do
     resources :comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -11,5 +12,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-    root :to => 'homes#top'
+  root :to => 'homes#top'
 end
