@@ -12,6 +12,7 @@
               <%= image_tag post.image.variant(resize_to_limit: [300, 200]) %><br>
             <% end %>
             <p class="caption"><%= post.location %></p>
+            <p class="caption"><%= "#{post.comments.count} コメント" %></p>
           <% end %>
         </div>
       <% end %>
