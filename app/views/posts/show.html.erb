@@ -3,6 +3,14 @@
     <div class="row">
       <h1 class="fw-normal mt-5 mb-5">旅行投稿詳細</h1>
     </div>
+    <% if @comment.errors.any? %>
+      <div class="card text-center text-white bg-danger mb-3 p-2">
+        <%= @comment.errors.count %>件のエラーが発生しました
+        <% @comment.errors.full_messages.each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    <% end %>
     <div class="d-flex">
       <div class="d-block">
         <p class="caption"><%= @post.user.name %></p>
