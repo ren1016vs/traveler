@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: '名前'
+      post:
+        location: '旅行先'
+        text: '感想'
+        image: '画像'
+      comment:
+        comment: 'コメント'
