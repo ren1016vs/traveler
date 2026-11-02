@@ -20,6 +20,10 @@ class PostsController < ApplicationController
     @posts = @posts.where('location LIKE ?', "%#{params[:search]}%") if params[:search].present?
   end
 
+  def confirm
+    @posts = current_user.posts.draft.page(params[:page]).reverse_order
+  end
+
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
