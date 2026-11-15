@@ -24,8 +24,9 @@ class PostsController < ApplicationController
     @posts = current_user.posts.draft.page(params[:page]).reverse_order
   end
 
-  def show
+def show
     @post = Post.find(params[:id])
+    @post.increment!(:view_count)
     @comment = Comment.new
     @comments = @post.comments.page(params[:page]).per(7).reverse_order
   end
