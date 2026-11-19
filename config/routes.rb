@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     end
     resource :relationships, only: [:create, :destroy]
   end
+  resources :rooms, only: [:create, :show]
+  resources :messages, only: [:create]
   resources :posts do
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]

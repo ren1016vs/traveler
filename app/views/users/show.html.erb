@@ -27,6 +27,9 @@
         <% else %>
           <%= link_to "フォローする", user_relationships_path(@user.id), data: { turbo_method: :post }, class: "btn btn-success me-3" %>
         <% end %>
+        <% if current_user.following?(@user) && @user.following?(current_user) %>
+          <%= button_to "チャットを始める", rooms_path, method: :post, params: { user_id: @user.id } %>
+        <% end %>
       <% end %>
       <%= link_to "フォロー #{@following_users.count}", follows_user_path(@user), class: "me-3" %>
       <%= link_to "フォロワー #{@follower_users.count}", followers_user_path(@user) %>

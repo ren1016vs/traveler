@@ -1,0 +1,10 @@
+<h1>チャットルーム <%= @room.id %></h1>
+<% @messages.each do |message| %>
+  <p><%= message.content %></p>
+<% end %>
+<%= form_with model: @message do |f| %>
+  <%= hidden_field_tag :room_id, @room.id %>
+  <%= f.label :content, "メッセージ本文" %>
+  <%= f.text_area :content %>
+  <%= f.submit "送信" %>
+<% end %>
